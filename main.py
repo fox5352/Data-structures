@@ -9,8 +9,9 @@ def main():
     for item in data:
         linked_list.append(item)
 
-    linked_list.print_list()
+    print(linked_list.pop())
 
+    linked_list.print_list()
 
 
     print("end")
