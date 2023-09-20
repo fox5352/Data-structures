@@ -9,12 +9,36 @@ def main():
     for item in data:
         linked_list.append(item)
 
-    print(linked_list.pop())
+    print('print hole list')
 
     linked_list.print_list()
 
+    print('remove from list')
+
+    last_item = linked_list.pop()
+
+    print('print hole list')
+
+    linked_list.print_list()
+
+    print("add more to list")
+    for i in range(4, 8):
+        linked_list.append(f'test_data_{i}')
+
+    print('print hole list')
+
+    linked_list.print_list()
+
+    print('insert from beginning')
+
+    linked_list.prepend(last_item)
+
+    print('print hole list')
+
+    linked_list.print_list()
 
     print("end")
+
 
 if __name__ == "__main__":
     main()
