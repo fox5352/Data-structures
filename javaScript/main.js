@@ -11,11 +11,20 @@ function main() {
     list.append(item);
   }
 
-  // list.log_list();
+  list.log_list();
+  console.log("removed list item from list");
+  let last_value = list.pop();
+  list.log_list();
 
-  console.log(list.pop());
+  console.log("add more to list");
+  for (let index = 4; index < 8; index++) {
+    list.append(`test_data_${index}`);
+  }
+  list.log_list();
 
-  // list.log_list();
+  console.log("prepend old last value to start of list");
+  list.prepend(last_value);
+  list.log_list();
 
   console.log("end");
 }

@@ -14,6 +14,34 @@ class LinkedList {
     this.length = 0;
   }
 
+  prepend(data) {
+    let newData = new Node(data); // newNode ->
+    newData.index = 0;
+
+    if (this.head == null) {
+      this.head = newData;
+      return;
+    }
+
+    // head -> node -> node ->
+    // buffer ^
+    let buffer = this.head;
+
+    // head -> newNode ->
+    this.head = newData;
+
+    //        buffer -> node ->
+    //head -> newNode ^
+    newData.next = buffer;
+
+    // increment rest
+
+    while (buffer.next) {
+      buffer.index++;
+      buffer = buffer.next;
+    }
+  }
+
   append(data) {
     let newData = new Node(data);
     let current = this.head;
@@ -26,9 +54,9 @@ class LinkedList {
     while (current.next != null) {
       current = current.next;
     }
-    this.length++;
     current.next = newData;
     current.index = this.length;
+    this.length++;
   }
 
   pop() {
