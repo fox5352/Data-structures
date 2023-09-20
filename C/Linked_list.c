@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <malloc.h>
 
 struct node {
@@ -17,6 +18,41 @@ void print_list(){
         printf("%s\n", current->data);
         current = current->next;
     }
+}
+
+void prepend(char data[]){
+    struct node *newData = NULL;
+    newData = (struct node *)malloc(sizeof(struct node));
+
+    if (newData == NULL)
+    {
+        return;
+    }
+    // newNode ->
+    newData->data = data;
+    newData->index = 0;
+
+    // head -> node -> node ->
+    // buffer ^
+    struct node *buffer = head;
+
+    // head -> newNode ->
+    head = newData;
+    
+    //        buffer -> node ->
+    //head -> newNode ^
+    head->next = buffer;
+
+    int counter = newData->index;
+
+    // increment rest
+    while (buffer->next != NULL)
+    {
+        counter++;
+        buffer->index = counter;
+        buffer = buffer->next;
+    }
+
 }
 
 void append(char data[]){
@@ -45,8 +81,8 @@ void append(char data[]){
     linkList_len ++;
 }
 
-void pop(){
-    if (head == NULL) return;
+struct node* pop(){
+    if (head == NULL) return NULL;
     struct node *current = head;
     struct node *previous;
 
@@ -56,7 +92,7 @@ void pop(){
     }
     
     previous->next = NULL;
-    free(current);
+    return current;
 }
 
 int main(){
@@ -69,8 +105,19 @@ int main(){
     }  
 
     print_list();
-    pop();
-    printf("old list ^\n");
+    printf("remove last node\n");
+    struct node *last_node = pop();
+    print_list();
+
+    printf("add more nodes to list\n");
+    for (size_t i = 0; i < list_len; i++)
+    {
+        append(list[i]);
+    } 
+    
+
+    printf("prepend last node\n");
+    prepend(last_node->data);
     print_list();
         
     return 0;
