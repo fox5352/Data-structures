@@ -1,8 +1,8 @@
 
 class Node:
-    def __init__(self, data=None, next=None) -> None:
+    def __init__(self, data=None) -> None:
         self.data = data
-        self.next = next
+        self.next = None
         self.index = 0
 
 
@@ -44,6 +44,19 @@ class LinkedList:
             while current.next:
                 current = current.next
             current.next = new_node
+
+    def prepop(self):
+        if self.head is not None:
+            buffer = self.head
+            current = buffer.next
+            self.head = current
+
+            while current:
+                current.index -= 1
+                current = current.next
+            return buffer.data
+        else:
+            return
 
     def pop(self):
         # sets buffer

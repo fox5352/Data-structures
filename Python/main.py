@@ -13,7 +13,7 @@ def main():
 
     linked_list.print_list()
 
-    print('remove from list')
+    print('remove last from list')
 
     last_item = linked_list.pop()
 
@@ -34,6 +34,12 @@ def main():
     linked_list.prepend(last_item)
 
     print('print hole list')
+
+    linked_list.print_list()
+
+    print("remove first from list")
+
+    first_value = linked_list.prepop()
 
     linked_list.print_list()
 
