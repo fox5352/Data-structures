@@ -26,6 +26,10 @@ function main() {
   list.prepend(last_value);
   list.log_list();
 
+  console.log("remove first value of the list");
+  let first_value = list.prepop();
+  list.log_list();
+
   console.log("end");
 }
 

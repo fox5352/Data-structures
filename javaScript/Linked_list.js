@@ -59,6 +59,22 @@ class LinkedList {
     this.length++;
   }
 
+  prepop(){
+    if (this.head){
+        let buffer = this.head;
+        let current = buffer.next
+        this.head = current
+
+        while (current){
+            current.index -= 1;
+            current = current.next;
+        }
+        return buffer.data
+    }else{
+        return
+    }
+  }
+
   pop() {
     if (this.head == null) {
       return null;
