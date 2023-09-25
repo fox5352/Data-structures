@@ -43,6 +43,12 @@ def main():
 
     linked_list.print_list()
 
+    print("inserted new data into list")
+
+    linked_list.insert(first_value, 3)
+
+    linked_list.print_list()
+
     print("end")
 
 
