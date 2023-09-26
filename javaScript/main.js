@@ -2,6 +2,7 @@
 
 const LinkedList = require("./Linked_list");
 const Queue = require("./Queue");
+const Stack = require('./Stack')
 
 function test_linked_list(){
   let testList = ["test_data_0", "test_data_1", "test_data_2", "test_data_3"];
@@ -53,9 +54,29 @@ function test_queue(){
   
 }
 
+function test_stack() {
+  let testList = ["test_data_0", "test_data_1", "test_data_2", "test_data_3"];
+  const stack = new Stack()
+  
+  for (const item of testList) {
+    console.log(item)
+    stack.push(item)
+  }
+  console.log(stack.size)
+  
+  let item = '';
+  do{
+    item = stack.pop()
+    console.log(item)
+  }while (item)
+  console.log(stack.size)
+  
+}
+
 function main() {
   // test_linked_list()
   test_queue();
+  test_stack();
 
   console.log("end");
 }

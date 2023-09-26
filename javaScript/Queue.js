@@ -26,13 +26,14 @@ class Queue{
 	}
 	pop(){
 		if (this.head == null){
+			this.tail = null;
 			return null;
 		}
 		this.size--;
-		let temp = this.head;
+		let data = this.head.data
 		this.head = this.head.next;
 		
-		return temp.data;
+		return data;
 	}
 }
 
